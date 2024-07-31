@@ -1,93 +1,144 @@
-*{
-    padding : 0;
-    margin : 0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-}
-body{
-    background-color:#c3bef0
-}
-
-h1{
-    text-align: center;
-    color:rgb(227, 120, 33);
-    padding: 40px;
-
-}
-.game-container{
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    text-align: center;
-    margin: 80px;
-    text-transform: uppercase;
-}
-.card-container{
-    display: flex;
-    justify-content: center;
-    background-color: lightblue;
-    border: 0.5px solid black;
-    margin: 20px;
-}
-.score{
-    position: absolute;
-    top: 80px;
-    right: 160px;
-    background-color: #f0f0f0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-}
-.card {
-    width: 50px;
-    height: 60px;
-    background-color: lightblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-}
-#moves-count {
-    font-size: 20px;
-    color: #552f2f;
-    position: absolute;
-    top: 80px;
-    padding-left: 40px;
-    padding-top: 50px;
+    
   }
   
-#timer {
-    font-size: 20px;
-    color: #552f2f;
-    position: absolute;
-    top: 50px;
-    padding-left: 40px;
-    padding-top: 50px;
-}
-#game {
+  body {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    max-width: 900px;
-    perspective: 800px;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #D8EFD3;
+    font-family:'Times New Roman', Times, serif;
+  }
 
-}
-.card.is-flipped {
+  h1{
+    color: #EE4E4E;
+    background-color: #B7B597;
+    padding: 30px;
+    margin-bottom: 60px;
+    border-radius: 20px;
+    border: 2px solid #ebe0c8;
+    box-shadow: 0 4px 8px rgba(79, 183, 83, 0.871);
+
+  }
+
+  .game-info {
+    position: absolute; 
+    right: 200px;
+    top: 100px;
+    background: rgba(255, 255, 255, 0.8); 
+    border: 2px solid #FF8225;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  #timer, #moves-count, #score-display {
+    margin: 5px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  #timer {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  #moves-count {
+    font-size: 1.2em;
+  }
+  
+  #score-display {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #FF8225; 
+  }
+  
+
+  .game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+
+  .card-container {
+    perspective: 1000px; 
+  }
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 0.5s;
+    cursor: pointer;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(79, 183, 83, 0.871);
+  }
+  
+  .card.flipped {
     transform: rotateY(180deg);
-}
-
-.card div {
+  }
+  
+  .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-size: 24px;
-    background-color: #f0f0f0;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  
+  .card-front {
+    background-color: #FF7F3E;
+    color: white;
+  }
+  
+  .card-back {
+    transform: rotateY(180deg);
+    background-color: #FFF6E9;
     border: 1px solid #ccc;
-}
+    color: #281c1c;
+    text-decoration: solid;
+  }
+  
+  .matched {
+    cursor: default;
+    opacity: 0.3;
+  }
+  
+  #result {
+    margin-top: 20px;
+    font-size: 1.4em;
+    color: green;
+  }
+  
+  button {
+    background-color: #FF8225;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #FF6F00;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
