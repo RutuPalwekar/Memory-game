@@ -105,10 +105,10 @@
   
   .card-back {
     transform: rotateY(180deg);
-    background-color: #FFF6E9;
+    background-color: #ece7e7;
     border: 1px solid #ccc;
-    color: #281c1c;
-    text-decoration: solid;
+    color: #2e1616;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   
   .matched {
@@ -119,7 +119,7 @@
   #result {
     margin-top: 20px;
     font-size: 1.4em;
-    color: green;
+    color: rgb(65, 7, 91);
   }
   
   button {

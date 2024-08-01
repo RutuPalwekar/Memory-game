@@ -123,13 +123,18 @@ const checkForMatch = () => {
       score += 10;
       updateScore();
       console.log("Match found! Score: " + score);
-    } 
-else {
+
+      // Check if all cards are matched
+      if (document.querySelectorAll('.matched').length === items.length) {
+        clearInterval(timer);
+        resultDisplay.textContent = `Congratulations! You completed the game in ${movesCount} moves and ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} minutes.`;
+      }
+    } else {
       setTimeout(() => {
         firstCard.classList.remove("flipped");
         secondCard.classList.remove("flipped");
         selectedCards = [];
-        console.log("No match, try again! " + score);
+        console.log("No match, try again!");
       }, 100);
     }
   });
