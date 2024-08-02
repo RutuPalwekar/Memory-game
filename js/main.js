@@ -6,6 +6,7 @@ const gameContainer = document.querySelector(".game-container");
 const resetBtn = document.getElementById("reset-btn");
 const startBtn = document.getElementById("start-btn");
 const gameInfo = document.querySelector('.game-info');
+const instructions = document.getElementById("instructions");
 
 const items = ["PAPAYA","PAPAYA","KIWI","KIWI","MANGO","MANGO","PEACH", "PEACH", "BANANA", "BANANA", "APPLE", "APPLE", "ORANGE", "ORANGE", "GRAPES", "GRAPES", "CHERRY", "CHERRY"];
 let selectedCards = [];
@@ -35,6 +36,7 @@ const startGame = () => {
   gameInfo.style.display = 'block'; 
   startBtn.style.display = 'none';
   resetBtn.style.display = 'inline-block';
+  instructions.style.display = 'none';
 };
 
 // Timer
@@ -181,6 +183,7 @@ const resetGame = () => {
   gameInfo.style.display = 'none';
   startBtn.style.display = 'inline-block';
   resetBtn.style.display = 'none';
+  instructions.style.display = 'block';
 };
 
 resetBtn.addEventListener('click', resetGame);
